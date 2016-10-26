@@ -1,5 +1,5 @@
 import os
-os.system('clear')
+os.system('clear') # clear screen
 
 def second_number():
     print("It's not correct sign.")
@@ -19,8 +19,8 @@ while 1:
     while  x!='+' and x!='-' and x!='/' and x!='*': #checks sign of input
         x=input("It's invalid sign. Enter an operation again: ")
     try:
-        b=int(input("Enter another number: ")) # probuje przerobic na inta
+        b=int(input("Enter another number: ")) # try convert input to int
     except ValueError:
-        b=second_number()
+        b=second_number() # uses function second_number() to try again
     b=str(b) # convert second number to string
-    print("Result : %.0f\n" %eval(a+x+b) ) #
+    print("Result : %.0f\n" %eval(a+x+b)) # eval count result 
