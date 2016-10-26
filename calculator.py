@@ -1,15 +1,26 @@
-while 1:
+import os
+os.system('clear')
+
+def second_number():
+    print("It's not correct sign.")
     try:
-        a=int(input("Enter a number (or a letter to exit): ")) # probuje przerobic na inta
+        n=int(input("Enter number again: "))
+        return n
     except ValueError:
-        exit() # jak nie wyjdzie to znaczy ze litera i zamyka program
-    a=str(a) # zamienia na string zeby policzyc je wszystkie na koncu przez eval()
-    print(a)
+        second_number() # up trying input is integer
+
+while 1:
+    try: # try convert input to int
+        a=int(input("Enter a number (or a letter to exit): "))
+    except ValueError:
+        exit() # if can't convert to int close the program
+    a=str(a) # convert first number to string
     x=input("Enter an operation: ")
-    print(x)
-    while x!="+" or x!="-" or x!="/" or x!="*": ####### nie chce sprawdzac kilku warunkow
-        x=input("Enter an operation: ")
-    print(x)
-    b=input("Enter another number: ")
-    result=a+x+b
-    print(eval(result)) # oblicza wynik ze string
+    while  x!='+' and x!='-' and x!='/' and x!='*': #checks sign of input
+        x=input("It's invalid sign. Enter an operation again: ")
+    try:
+        b=int(input("Enter another number: ")) # probuje przerobic na inta
+    except ValueError:
+        b=second_number()
+    b=str(b) # convert second number to string
+    print("Result : %.0f\n" %eval(a+x+b) ) #
